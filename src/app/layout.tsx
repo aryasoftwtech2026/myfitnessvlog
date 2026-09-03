@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     google: "6krQRzX0XBI95JTP6Ao7YOKkQt9uFf1z7BsEOaBrD6Q", // Search Console ke liye (optional)
   },
   other: {
-    "google-adsense-account": "pub-4479408447708496", // ← Yeh AdSense verification ke liye zaroori hai
+    "google-adsense-account": "ca-pub-4479408447708496", // ← Yeh AdSense verification ke liye zaroori hai
   },
 };
 
