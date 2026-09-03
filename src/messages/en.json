@@ -1,0 +1,11 @@
+{
+  "Home": {
+    "title": "Health & Fitness Blog",
+    "description": "Best health and fitness tips for a better life"
+  },
+  "Navigation": {
+    "home": "Home",
+    "blog": "Blog",
+    "about": "About"
+  }
+}
