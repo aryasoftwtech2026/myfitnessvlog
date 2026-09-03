@@ -13,16 +13,12 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  // Add subtle shadow + background change on scroll
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile menu when route changes
   useEffect(() => {
     setIsOpen(false);
   }, [pathname]);
@@ -38,6 +34,7 @@ export default function Navbar() {
     { href: '', label: t('home') },
     { href: '/blog', label: t('blog') },
     { href: '/about', label: t('about') },
+    { href: '/contact', label: locale === 'hi' ? 'संपर्क' : 'Contact' },
   ];
 
   return (
@@ -93,7 +90,6 @@ export default function Navbar() {
               <LanguageSwitcher />
             </div>
 
-            {/* Mobile menu button */}
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="md:hidden relative w-10 h-10 flex items-center justify-center rounded-lg text-gray-700 hover:bg-gray-100 transition-colors"
@@ -101,32 +97,16 @@ export default function Navbar() {
               aria-expanded={isOpen}
             >
               <div className="w-5 h-5 flex flex-col justify-center gap-1.5">
-                <span
-                  className={`block h-0.5 w-5 bg-current rounded-full transition-all duration-300 origin-center ${
-                    isOpen ? 'rotate-45 translate-y-[7px]' : ''
-                  }`}
-                />
-                <span
-                  className={`block h-0.5 w-5 bg-current rounded-full transition-all duration-300 ${
-                    isOpen ? 'opacity-0 scale-0' : ''
-                  }`}
-                />
-                <span
-                  className={`block h-0.5 w-5 bg-current rounded-full transition-all duration-300 origin-center ${
-                    isOpen ? '-rotate-45 -translate-y-[7px]' : ''
-                  }`}
-                />
+                <span className={`block h-0.5 w-5 bg-current rounded-full transition-all duration-300 origin-center ${isOpen ? 'rotate-45 translate-y-[7px]' : ''}`} />
+                <span className={`block h-0.5 w-5 bg-current rounded-full transition-all duration-300 ${isOpen ? 'opacity-0 scale-0' : ''}`} />
+                <span className={`block h-0.5 w-5 bg-current rounded-full transition-all duration-300 origin-center ${isOpen ? '-rotate-45 -translate-y-[7px]' : ''}`} />
               </div>
             </button>
           </div>
         </div>
 
         {/* Mobile Menu */}
-        <div
-          className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
-            isOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'
-          }`}
-        >
+        <div className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-80 opacity-100' : 'max-h-0 opacity-0'}`}>
           <nav className="py-4 border-t border-gray-100">
             <div className="flex flex-col gap-1">
               {navLinks.map((link) => {
@@ -137,20 +117,15 @@ export default function Navbar() {
                     href={`/${locale}${link.href}`}
                     onClick={() => setIsOpen(false)}
                     className={`flex items-center px-4 py-3 rounded-xl text-base font-medium transition-all ${
-                      active
-                        ? 'bg-green-50 text-green-700'
-                        : 'text-gray-700 hover:bg-gray-50 hover:text-green-700'
+                      active ? 'bg-green-50 text-green-700' : 'text-gray-700 hover:bg-gray-50 hover:text-green-700'
                     }`}
                   >
                     {link.label}
-                    {active && (
-                      <span className="ml-auto w-1.5 h-1.5 rounded-full bg-green-600" />
-                    )}
+                    {active && <span className="ml-auto w-1.5 h-1.5 rounded-full bg-green-600" />}
                   </Link>
                 );
               })}
 
-              {/* Language switcher on mobile */}
               <div className="sm:hidden mt-3 pt-3 border-t border-gray-100 px-2">
                 <LanguageSwitcher />
               </div>

@@ -3,6 +3,7 @@ import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 
 export default async function LocaleLayout({
   children,
@@ -21,13 +22,18 @@ export default async function LocaleLayout({
 
   return (
     <NextIntlClientProvider messages={messages}>
-      <Navbar />
-      <main className="flex-1 container mx-auto px-4 py-8">
-        {children}
-      </main>
-      <footer className="border-t py-6 text-center text-gray-500 text-sm">
-        © 2026 Health & Fitness Blog. All rights reserved.
-      </footer>
+      <div className="min-h-screen flex flex-col">
+        {/* Navbar */}
+        <Navbar />
+
+        {/* Main Content */}
+        <main className="flex-1 container mx-auto px-4 py-8">
+          {children}
+        </main>
+
+        {/* Footer */}
+        <Footer />
+      </div>
     </NextIntlClientProvider>
   );
 }
