@@ -17,7 +17,10 @@ export const metadata: Metadata = {
   title: "Health & Fitness Blog",
   description: "Best health and fitness tips in Hindi and English",
   verification: {
-    google: "6krQRzX0XBI95JTP6Ao7YOKkQt9uFf1z7BsEOaBrD6Q",
+    google: "6krQRzX0XBI95JTP6Ao7YOKkQt9uFf1z7BsEOaBrD6Q", // Search Console ke liye (optional)
+  },
+  other: {
+    "google-adsense-account": "pub-4479408447708496", // ← Yeh AdSense verification ke liye zaroori hai
   },
 };
 
@@ -34,7 +37,6 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col bg-white text-gray-900">
         {children}
 
-        {/* Google AdSense */}
         <Script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4479408447708496"
