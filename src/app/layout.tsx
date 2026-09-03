@@ -15,6 +15,10 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Health & Fitness Blog",
   description: "Best health and fitness tips in Hindi and English",
+   verification: {
+    google: "6krQRzX0XBI95JTP6Ao7YOKkQt9uFf1z7BsEOaBrD6Q",
+  },
+  
 };
 
 export default function RootLayout({
